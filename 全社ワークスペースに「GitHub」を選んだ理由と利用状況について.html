@@ -1,0 +1,614 @@
+<!doctype html>
+<html style='font-size:14px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>全社ワークスペースに「GitHub」を選んだ理由と利用状況について</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='全社ワークスペースにgithubを選んだ理由と利用状況について'><span>全社ワークスペースに「GitHub」を選んだ理由と利用状況について</span></h1><p><span>195</span></p><p><img src="https://assets.st-note.com/production/uploads/images/24161941/profile_254dfc564209333bc15edaea09002237.jpg?width=60" referrerpolicy="no-referrer" alt="ROUTE06"></p><p><a href='https://note.route06.co.jp/'><span>ROUTE06</span></a></p><p><span>2022年4月27日 11:56</span></p><p><span>ROUTE06では2022年1月から全社ワークスペースをGitHubへ移行しています。全社員がGitHubアカウントを保有し、コーポレートやマーケティングなどの業務においても、GitHub上で議事録や業務ガイドラインなどの文書作成及びタスク管理などが日常的に行われています。</span></p><p><span>プロダクト開発に関連した業務以外でも、GitHubの全社利用を始めてから社内の情報共有のあり方が変わったという前向きな意見も多く、特段のトラブルもなくNotionからの切り替えが進んでいる状況です。</span></p><blockquote><p><span>全社員がGitHubでドキュメンテーションすることになったけど、レビューが自然とプロセスに入り、コラボが生まれやすくなって組織の情報流通が滑らかになった感がある</span></p></blockquote><p><span>GitHub全社導入時にあった社員のコメント例</span></p><p><span>GitHubはソースコード管理に留まらず、あらゆるドキュメンテーション管理に活用できるのですが、ソフトウェア開発者以外にはあまり馴染みのないプロダクトであり、開発業務以外での活用を検討したことはあっても本格導入には躊躇するチームや組織も多いのではないでしょうか。</span></p><p><span>この記事ではROUTE06の全社的なドキュメント及びタスク管理においてGitHubを採用した背景、具体的な利用状況などについてご紹介していきます。</span></p><p>&nbsp;</p><p>&nbsp;</p><h2 id='目次'><span>目次</span></h2><ol><li><p><span>複雑な課題に非同期で向き合う組織の「情報設計」</span></p></li><li><p><span>これまでは「Notion」を積極活用</span></p></li><li><p><span>「GitHub」の全社導入を決めた理由</span></p></li><li><p><span>具体的な業務での利用状況</span></p></li><li><p><span>今後の取り組みについて</span></p></li></ol><h2 id='複雑な課題に非同期で向き合う組織の情報設計'><span>複雑な課題に非同期で向き合う組織の「情報設計」</span></h2><p><span>ROUTE06では大手企業グループの抱える複雑なビジネス課題に向き合い、それらを解決するためのデジタルプロダクトの開発・運営を行なっています。日々の業務で取り扱う情報の範囲は、大量のログデータや事業KPIなどの定量情報から、複数部門が関わる業務レポートや経営会議の議事録などの定性情報まで、多岐にわたっています。チーム内での情報伝達やドキュメントの管理などの情報設計は、プロダクト及びサービスの品質向上や業務効率化という観点のみならず、顧客企業からの信頼という面でも非常に重要な論点です。</span></p><p><span>また社内の働き方に関して、今後より個人のライフスタイルと仕事の選択肢が多様化していくことを踏まえ、勤務の場所や時間の異なる社内外のチームメンバーが非同期でも効率的に仕事ができる環境や体制づくりに力を入れてきました。本記事執筆時点において全従業員の約4割が関東圏外在住であり、業務上特段の必要性のある場合を除き、出社は任意となっています。</span></p><p><span>組織の規模が大きくなるほど、情報の共有・活用を円滑にする文化・仕組み・システムの構築及びその維持には多大なコストがかかります。ROUTE06では創業初期からあらゆる業務ドキュメントの作成・共有・管理などの「情報設計」を重要な経営テーマと考え、顧客企業の抱える複雑なビジネス課題を解決するために、多様なチームが柔軟に働ける会社を目指しています。</span></p><p>&nbsp;</p><h2 id='これまではnotionを積極活用'><span>これまでは「Notion」を積極活用</span></h2><p><span>社内の業務ドキュメンテーションに関しては、これまでは主にNotionが活用されていました。打ち合わせの議事録やタスク進捗などのフロー情報から、プロダクト開発に関する仕様やコーポレート関連の規定ルールやガイドラインなどのストック情報まで、幅広いコンテンツがNotion内に作成・管理されています。</span></p><p><a href='https://assets.st-note.com/img/1649230832264-WCHM0diLNc.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1649230832264-WCHM0diLNc.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>社内Notionページのサンプル</span></p><p><span>Notionは情報を構造的に整理することに長けており、DatabaseのRelationやRollupなどで情報を一元管理しつつ、必要に応じて他のテーブルと連携させて表示させたり、Viewの切り替えによって用途に合わせて視認しやすい画面レイアウトにしたりなど、情報を整理・活用するための機能が充実しています。</span></p><p><span>ページの公開機能などを活用することでノーコードで簡易なWebサイト作成し、そのままインターネット上に公開することもできます。ROUTE06でも当時は国内でほとんど事例がなかったNotionページによる採用サイト作成など、新しい機能も積極的に業務に活用してきました。</span></p><p><a href='https://jobs.route06.co.jp/?utm_source=note&amp;utm_medium=github&amp;utm_campaign=202204'><strong><span>株式会社ROUTE06 - 採用情報*</span></strong><span>ROUTE06 (ルートシックス) では、大きなミッション達成のために、一丸となって仕事に取り組めるチームメンバーを募集し</span><em><span>*jobs.route06.co.jp</span></em></a></p><p><span>Notionが登場する前は、同じ社内でも職種やチームによってドキュメント作成及びタスク管理ツールが異なる場合も多く、業務フローや情報共有の分断が少なからず発生していたのですが、Notionは誰もが利用しやすい統合型かつ共通ワークスペースとして、スタートアップやWeb系メガベンチャーを中心に多くの企業で積極的に活用されるようになりました。</span></p><p><span>ROUTE06でもプロダクト開発の具体的な仕様やソースコード管理ではGitHub/ZenHubやMiro/Figmaなどを活用していますが、それ以外の社内共有用のドキュメント作成やタスク管理等の大多数はNotion上で行われており、約2年分の業務情報が蓄積されています。</span></p><p>&nbsp;</p><h2 id='githubの全社導入を決めた理由'><span>「GitHub」の全社導入を決めた理由</span></h2><p><span>これまではNotionを実質的な共通ワークスペースとして活用してきましたが、2022年1月からGitHubの全社利用及びNotionからの移行を開始しています。今後取引先や社員をはじめとしたステークホルダーの増加とともに取り扱う情報が複雑・多様化していくなかで、以下のような理由によりGitHubが全社ワークスペースとして選定されました。</span></p><p><strong><span>1.業務プロセスとドキュメンテーションの連続性</span></strong>
+<span>一般的にプロダクト開発における要件定義・仕様作成ではNotion等のGitHub以外のツールが好まれやすいですが、ドキュメント作成をGitHubに一本化することができれば、設計と実装のプロセスにおける情報共有がよりスムーズに行えるようになります。2021年3月よりDiscussions機能がプライベートリポジトリでも活用可能になったことから、議事録やアイディアメモなどもビジネスドキュメントもGitHub内で作成・共有しやすくなりました。またコーポレート部門もGitHubを利用していれば、部門・業務をまたいだ情報共有（特に問題の察知など）などの利便性も高まります。</span></p><p><a href='https://assets.st-note.com/img/1649575193511-rIECvQXRB3.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1649575193511-rIECvQXRB3.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>Repositoryを跨いだissueの引用や管理なども容易</span></p><p><span>**</span>
+<span>2.Slack等への接続性及び視認性</span>
+<span>**GitHubではCode、Issues、Discussionsをドキュメント作成の目的に合わせて使い分け可能であり、各リポジトリ内でのドキュメント作成や変更差分更新などはSlackの各チャネルに自動通知されるように設定できます。本記事執筆時点において、Notionその他ドキュメントツールでもページ更新等をトリガーとしたSlack通知など可能ではありますが、細かい条件設定や展開テキストの視認性という点でGitHubは利便性の高い機能を数多く有しています。</span></p><p><a href='https://assets.st-note.com/img/1649320508409-SU5jNvKQ0e.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1649320508409-SU5jNvKQ0e.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>Slackへの変更・更新履歴及び内容の通知</span></p><p><span>**</span>
+<span>3.バージョン管理と共同編集の利便性</span>
+<span>**GitHubはドキュメントの保管・編集更新などの履歴確認やアサイン管理などの機能が豊富です。例えば業務ガイドラインなどのドキュメントをコード管理にし、Pull Requestのフローを取り入れることで、初稿から全ての変更差分及び議論過程がコメントとして蓄積されるため、後から入社した方でも正確にその経緯を確認することができるようになります。記載内容に少しでも気になる点があれば、誰でもドキュメントの変更提案ができるため、情報の鮮度と質を特定の個人に依存せずチームで担保することが可能になります。また内部統制・監査などにおいても、規定類の更新状況などの信頼性の高いデータを開示しやすいなど、ガバナンス強化の観点でもメリットがあります。</span></p><p><a href='https://assets.st-note.com/img/1649575117436-hgYYCvDJwY.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1649575117436-hgYYCvDJwY.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>ドキュメントの変更履歴の確認</span></p><p><span>**</span></p><p><span>4.システムの安定性及びセキュリティ水準</span>
+<span>**GitHubは世界で広くエンタープライズ利用されているソフトウェアサービスであり、その安定性とセキュリティ水準には一定の信頼感があります。またGitHubは2018年にMicrosoftグループとなってから、ドキュメントを安全に管理するセキュリティ機能やエンタープライズ向けサービスを重点強化する方針を公表しています。</span></p><p><a href='https://assets.st-note.com/img/1649391129190-Ac6Qbh6qHE.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1649391129190-Ac6Qbh6qHE.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><a href='https://github.com/security'><span>GitHub Security</span></a><span>より引用</span></p><p><span>**</span>
+<span>**</span></p><h2 id='具体的な業務での利用状況'><span>具体的な業務での利用状況</span></h2><p><span>ROUTE06のOrganization内のGitHubリポジトリは部署やチーム、開発プロジェクト毎などで作成されており、現時点では全体の約25%がソフトウェア開発に直接関係しないビジネス用途のものです。</span></p><p><a href='https://assets.st-note.com/img/1651027979056-sWRIdeslds.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1651027979056-sWRIdeslds.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>リポジトリの利用状況（2022年4月27日現在)</span></p><p><a href='https://docs.github.com/ja/repositories/creating-and-managing-repositories/about-repositories'><strong><span>リポジトリについて - GitHub Docs*</span></strong><span>リポジトリには、プロジェクトのすべてのファイルと各ファイルの改訂履歴が含まれています。 リポジトリ内でプロジェクトの作業に</span><em><span>*docs.github.com</span></em></a></p><p><span>GitHubにおいてドキュメンテーションに活用できる機能は主にCode、Discussions、Issuesの3種類ですが、目的と用途に応じて主に以下のような使い分けがされています。</span></p><p><a href='https://assets.st-note.com/img/1649592931658-LGhpcBJupk.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1649592931658-LGhpcBJupk.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>各ドキュメント機能の位置付け</span></p><p><span>それぞれの具体的な利用事例は以下の通りです。</span></p><p><a href='https://assets.st-note.com/img/1649576965852-rsJcyqwwhY.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1649576965852-rsJcyqwwhY.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>Code活用事例：会社基本情報の公開</span></p><p><a href='https://assets.st-note.com/img/1649577224806-oAi2r8RbAN.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1649577224806-oAi2r8RbAN.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>Discussions活用事例：アジェンダと議事録の共有</span></p><p><a href='https://assets.st-note.com/img/1649577530393-ykHWFfoCgj.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1649577530393-ykHWFfoCgj.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>Issues活用事例：コーポレートへの振込依頼</span></p><p><span>また2022年2月よりMermaid記法も対応となり、GitHub内のエディターから簡単なガントチャートやシーケンス図などが作成可能になりました。こういった機能なども社内では使われ始めています。</span></p><p><a href='https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/'><strong><span>Include diagrams in your Markdown files with Mermaid | The GitHub Blog*</span></strong><span>Mermaid is a JavaScript based diagramming and charting tool t</span><em><span>*github.blog</span></em></a></p><p><span>もともと全社導入を決定する前から、経理・法務などのコーポーレート業務でもタスク管理や契約書類のレビューにGitHubやZenHubが活用されていました。全社導入決定後は他のチームや業務でも上記のように活用範囲が広がっています。</span></p><p>&nbsp;</p><h2 id='今後の取り組みについて'><span>今後の取り組みについて</span></h2><p><span>前述の通り全社ワークスペースとしてGitHubの導入が進んでおりますが、まだ一部のドキュメント等はNotionにあるなど段階的な移行状況であり、課題や改善点も少なくありません。今後の運用状況に合わせて活用範囲や手段を改善しながら、社内利用ガイドラインなどを充実させていく方針です。</span></p><p><span>またGitHubはメンバーやコラボレーターが増えれば増えるほどチーム活用の利便性が高まるツールではありますが、他のドキュメントツールに比べて学習コストが高いことが課題としてあります。今後組織がさらに拡大するなかで、入社時点ではGitHub利用経験のない社員も増加することが想定されるため、オンボーディングや研修などでのサポートを充実させていく必要があります。</span></p><p><a href='https://assets.st-note.com/img/1649580174775-lPQiPEfF53.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1649580174775-lPQiPEfF53.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>社内のGiHub勉強会のスライドの一部</span></p><p><span>上記のようにまだまだ改善余地のある状況ではありますが、ROUTE06は大手企業の先進的なDX案件を支援する会社である以上、自分たち自身が最もDX化された組織を目指し、会社全体の思想や仕組みをアップデートし続けるべきであると考えています。</span></p><p><span>これからも新しいプロダクトを積極的に活用し、最先端の業務効率化にチャレンジしていく方針であり、本件のような取り組み事例についても順次ご紹介していきたいと思います。</span></p><p>&nbsp;</p><p>&nbsp;</p><h1 id='github-pagesを活用した社内ハンドブックの取り組み'><span>GitHub Pagesを活用した、社内ハンドブックの取り組み</span></h1><p><span>27</span></p><p><img src="https://assets.st-note.com/production/uploads/images/24161941/profile_254dfc564209333bc15edaea09002237.jpg?width=60" referrerpolicy="no-referrer" alt="ROUTE06"></p><p><a href='https://note.route06.co.jp/'><span>ROUTE06</span></a></p><p><span>2023年7月6日 08:58</span></p><p><span>情報共有やナレッジマネジメントの重要性はすでに認識されており、SaaSを活用しながら力を入れている企業は増えています。一方で最適解はなく、常に課題を認識しながら運用している企業も多いのではないでしょうか。</span></p><p><span>ROUTE06では</span><a href='https://note.route06.co.jp/n/n5b21649308cf'><span>全社でGitHubを活用</span></a><span>しており、</span><a href='https://about.gitlab.com/handbook/'><span>GitLab Handbook</span></a><span>を参考に、全社に関係する情報をハンドブックとしてGitHub Pagesで社内に公開しています。</span>
+<span>本記事では、どのように運用しているのかを紹介させていただきますので、事例の一つとして、参考になれば幸いです。</span></p><h2 id='github-github-pages-を選んだ背景'><span>GitHub (GitHub Pages) を選んだ背景</span></h2><p><span>全社ワークスペースをGitHubにしたことで、日常的にGitHubを活用するようになりました。タスク管理や目標管理はGitHub IssuesとProjects、議事録や日報はGitHub Discussions、簡易的な承認はPull requestsで行うなど、広く利用されています。</span>
+<span>GitHubの利用が浸透したことで、全社に影響する取り組みをGitHub上で実現することができる環境になりました。</span></p><p><span>このような背景を生かして、GitHub Pagesを活用した、社内向けハンドブックの運用を2022年12月より開始しました。</span></p><h2 id='利用している技術'><span>利用している技術</span></h2><p><span>利用している技術は次のとおりです。</span></p><ul><li><p><a href='https://github.com/'><span>GitHub</span></a><span> (Enterprise)</span></p></li><li><p><a href='https://docs.github.com/pages'><span>GitHub Pages</span></a></p></li><li><p><a href='https://docusaurus.io/'><span>Docusaurus</span></a></p></li></ul><p><span>大きな負担なく運用できるよう、シンプルな構成となっています。</span>
+<span>GitHubはEnterpriseプランを契約することで、Private Pagesの作成が可能になり、そのリポジトリを見られる人だけがそこから生成されるPagesのサイトを見られるという設定を行うことができます。</span></p><p><a href='https://github.blog/jp/2021-01-25-access-control-for-github-page/'><strong><span>GitHub Pagesのアクセス管理*</span></strong><span>GitHub Pages では、アクセスを制限して、そのページを公開したリポジトリへのアクセス権を持つユーザーだけがサイト</span><em><span>*github.blog</span></em></a></p><p><span>この機能を活用し、DocusaurusをStatic Site Generatorとして使用することで、社内メンバーのみがアクセス可能なハンドブック環境を実現しています。</span></p><h2 id='docusaurusを選んだ理由'><span>Docusaurusを選んだ理由</span></h2><p><span>ハンドブックの環境を構築するにあたり、以下のような点を意識して選定しました。</span></p><ul><li><p><span>全社で日常的に参照され、変更するべき点については気軽に提案、直接コントリビュートができること</span></p></li><li><p><span>関連情報が集約され、存在するドキュメントが更新され続けること</span></p></li><li><p><span>検索可能であること</span></p></li><li><p><span>自分たちで運用する場合は、維持が比較的容易であること</span></p></li><li><p><span>もし合わない場合には乗り換えが可能なように、ドキュメントが持ち出し可能であること</span></p></li><li><p><span>社内利用であり制約が少ないため、楽しんで改善ができること</span></p></li></ul><p><span>有料SaaSの利用なども同時に検討していましたが、検討時期にちょうど</span><a href='https://docusaurus.io/blog/2022/08/01/announcing-docusaurus-2.0'><span>Docusaurus 2.0</span></a><span>がリリースされたばかりで注目度も更新頻度も高く、Docusaurusが利用している技術は社内のメンバーとも相性が良さそうであり、上にあげた項目も満たせそうなことから、採用を決めました。</span></p><h2 id='更新しやすくするための工夫'><span>更新しやすくするための工夫</span></h2><p><span>Docusaurusでは、情報をMarkdownファイルによって管理しています。</span>
+<span>情報の追加や更新を行う際には、GitHubのリポジトリにアクセスしてファイルを追加・編集、Pull requestを作成し、CODEOWNERのレビューを経てマージするという流れになります。</span>
+<span>Pull requestの作成は、ファイルの追加・削除の操作やCommitの操作なども学ぶ必要があり、最初は少しハードルがありましたが、今では広く日常的に行われるようになりました。</span></p><p><span>しかしながら、運用上の課題として、以下のような点がありました。</span></p><ul><li><p><span>本番環境へ反映された場合にどのように表示されるのかを確認するためには、ローカル環境で実行する必要がある</span></p></li><li><p><span>MDXの仕様上、Markdownファイルにimgタグを記述する際は末尾にスラッシュをつけないとシンタックスエラーになったり、Markdown記法が人によってばらつきが生まれたりなどの課題がある</span></p></li></ul><h3 id='プレビュー環境の用意'><span>プレビュー環境の用意</span></h3><p><span>表示確認のハードルを下げるため、Pull requestが作成されたら、GitHub Actionsを用いてプレビュー環境を用意するようにしました。</span>
+<span>GitHub Pagesで運用しているため、プレビュー環境用のリポジトリを別で用意、Pull requestが作成されたらそちらにデプロイし、変更があったページのプレビューURLがPull requestにコメントされます。</span>
+<span>確認のハードルが大きく下がり、Pull requestのレビューもスムーズになりました。</span></p><h3 id='各種lintツールの導入'><span>各種lintツールの導入</span></h3><p><span>imgタグのシンタックスエラー解消のほか、Markdown記法に沿っていない記述を指摘したり軽微なものは自動的に修正するため、eslintやmarkdownlintを導入しています。これらはGitHub Actionsで実行され、Reviewdogを使用しPull Requestにコメントとして追加しています。</span>
+<span>レビューコストが下がっただけでなく、執筆者のMarkdown記法のスキルアップにもつながっています。</span></p><h2 id='利用状況と今後の課題'><span>利用状況と今後の課題</span></h2><p><span>2022年12月より運用を開始、2023年7月時点では、300件強のMarkdownファイルが共有されています。関連情報の分散を防ぐため、現在は1つのファイルに関連情報やTipsなども含めて情報を追記する方針としています。</span></p><p><span>毎日のようにPull requestが作成されて更新が行われており、社内のメンバーがコントリビュートしていることからも、上にあげた要件は現時点では概ね満たせていると感じており、このまま引き続き改善していけたらと考えています。</span></p><p><a href='https://assets.st-note.com/img/1688974830264-FoQ6TeL8mT.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1688974830264-FoQ6TeL8mT.png?width=800" referrerpolicy="no-referrer" alt="画像"></a></p><p><span>また、新たな工夫として、ROUTE06では現在数多くのリポジトリが存在しますが、その中でも特に主要なリポジトリについて、README.mdを自動的にハンドブックへと同期し、ハンドブック上からREADME.mdを確認できる環境を構築中です。これにより、主要なリポジトリについてはREADME.mdを更新することで情報の見通しが良くなり、リポジトリのREADME.mdが正しく活用されるようになることを期待しています。</span></p><p><span>追加や編集が日常的に行われて、さまざまなドキュメントが自然と追加される状態になった反動として、全体の情報量が増えてきました。今後は、構造的に捉えやすいよう情報の分類を工夫し、配置場所をわかりやすくすることで、組織の拡大や取り組み内容の複雑化にも対応した形で情報が流通するようにしていきたいと考えています。</span></p><p><span>引き続きハンドブックの改善を進めるとともに、働きやすい環境を実現するために他にもさまざまな取り組みを予定しています。また実装できたら、ご紹介できればと思います。</span></p><p>&nbsp;</p><p>&nbsp;</p><h1 id='cmsとしてのgithub活用コーポレートサイトにおける事例紹介'><span>CMSとしてのGitHub活用〜コーポレートサイトにおける事例紹介〜</span></h1><p><span>18</span></p><p><img src="https://assets.st-note.com/production/uploads/images/24161941/profile_254dfc564209333bc15edaea09002237.jpg?width=60" referrerpolicy="no-referrer" alt="ROUTE06"></p><p><a href='https://note.route06.co.jp/'><span>ROUTE06</span></a></p><p><span>2023年7月6日 08:59</span></p><p><span>ROUTE06では、社内の様々な業務においてGitHubを活用しています。全社導入の背景や実際の利用状況については以前の記事でもご紹介した通りで、GitHubはドキュメント管理ツールの枠を超えて全社のあらゆる業務を支える基盤となっています。</span></p><iframe class="note-embed" scrolling="no" loading="lazy" data-src="https://note.route06.co.jp/embed/notes/n5b21649308cf" src="https://note.route06.co.jp/embed/notes/n5b21649308cf" height="234px" data-ready="true" style="background-repeat: no-repeat; box-sizing: inherit; padding: 0px; margin: 10px 0px; border: 0px; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246/0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; display: block; vertical-align: initial; width: 494px; max-width: none; visibility: visible;"></iframe><p>&nbsp;</p><iframe class="note-embed" scrolling="no" loading="lazy" data-src="https://note.route06.co.jp/embed/notes/ndb0891287abe" src="https://note.route06.co.jp/embed/notes/ndb0891287abe" height="234px" data-ready="true" style="background-repeat: no-repeat; box-sizing: inherit; padding: 0px; margin: 10px 0px; border: 0px; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246/0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; display: block; vertical-align: initial; width: 494px; max-width: none; visibility: visible;"></iframe><p>&nbsp;</p><p><span>本記事では、ROUTE06のコーポレートサイトの構築においてGitHubを実質的なヘッドレスCMS(Content Management System)として活用した事例についてご紹介します。どのような背景からGitHubをCMSと定め、具体的にどう運用しているか、また今後どう改善していきたいのか等についてまとめました。</span></p><h2 id='コーポレートサイトの設計思想'><span>コーポレートサイトの設計思想</span></h2><p><span>当初コーポレートサイトは必要最低限の会社情報を掲載したランディングページのみの状態でしたが、昨年の資金調達のプレスリリースのタイミングに合わせ、</span><a href='https://route06.co.jp/'><span>現在のサイトへリニューアル</span></a><span>しました。企画からデザインや実装及び運用まで社内で行なっており、日々改善を続けている状況です。</span></p><p><span>リニューアル後、ROUTE06ではコーポレートサイトを顧客を中心としたステークホルダー向けの情報サービスと位置付けています。大手企業のデジタル・トランスフォーメーション(以下、DX)を支援する上で、自社だけではなく様々な人・企業・システム等との連携は必須であり、広範な知見も求められます。自社の足元での事業領域より広義のテーマを対象とし、常に社内でも調査や論考を重ねながら、DXに関わる様々な知見の蓄積と信頼性に重きおいたコンテンツ制作を行なっています。</span></p><p><span>同時にコーポレートサイトも自社プロダクトの一つとして、機能追加やUI変更などアジャイルに改善し続けながら、様々なチャレンジができる場であることも大事にしています。メディアとしてのグロースさせるために必要なサイトの表示速度や構造化データなどの改善などにも取り組んでいます。顧客企業向けのプロダクト開発では使用していない新しい技術やデザイン、データ分析環境の試験的な実装を行うことによって、通常の営業活動では得られない知見の蓄積を目指しています。</span></p><h2 id='githubをcmsに選定した背景'><span>GitHubをCMSに選定した背景</span></h2><p><span>サイトの構築にあたり、様々なCMSの選択肢があるなかで、GitHubを選定した理由は主に2つあります。</span></p><h3 id='1-bizopsとdevopsの一体化'><span>1. BizOpsとDevOpsの一体化</span></h3><p><span>最も効率的なWebサイトの運用体制はどのようなものか。それはBizOpsとDevOpsの境目がない状態であり、コンテンツを制作管理するオペレーター(ライター／編集者)と、システムの実装及び運用を担う開発者の2者間で、業務情報及びITスキルの格差が極小化された状態であると考えています。</span></p><p><span>もしシステムの実装者＝ライターであれば、管理画面がなくともコンテンツ編集・操作を行うことができ、制作中のコンテンツに合わせて柔軟にUIを変更することも可能になります。BizOpsとDevOpsの一体化によって、開発と制作の間で摩擦の少ない効率的な業務プロセスを実現することができます。</span></p><p><span>そのような考え方が背景にあるため、GitHubを実質的なヘッドレスCMSとして活用し、オペレーター(ライター／編集者)が開発者及びデザイナーと同じGitHubのRepository内でコンテンツ作成・編集できる環境を構築しました。</span></p><p><span>具体的な業務フローについては後述の通りですが、コーポレートサイトの企画・制作・デザイン・実装に関わるあらゆる関係者が一つのRepositoryのなかで課題やタスクなどのログを共有することで、チームの情報格差が少ない状態を実現できています。管理画面のデザイン・実装・管理などの工数を削減できていることも分かりやすい利点の一つです。また認証や権限管理などセキュリティ面でのメリットも少なくありません。</span></p><p><span>オペレーション担当者と開発者がお互いの抱えているタスクや課題を共有するための手段やツールは数多く存在しますが、GitHubをCMSかつコミュニケーション及びプロジェクト管理ツールとして活用することで、よりシームレスかつリアルタイムにお互いの業務状況を知ることができます。</span></p><p><span>特にROUTE06はフルリモートワーク組織であるため、ソースコードだけでなく記事の本文や画像においてもオープンなバージョン管理及びレビュー体制があることで、オフィス等で同期的な会話をしていなくても、多様なメンバーがお互いの業務をフォローしやすい環境を実現することができています。</span></p><h3 id='2-github-flowの学習機会'><span>2. GitHub Flowの学習機会</span></h3><p><span>GitHub Flowとは現代の多くのソフトウェア開発の根幹となっているワークフローの考え方です。一方、たとえプロダクトマネージャーやデザイナーであっても、GitHubに触れるのはIssue作成やコメント、一部のPull requestのレビューなどの対応に限定され、Branch作成からPull requestのMerge及びDeployまでのプロセスに実務上関わる機会は一般的にそう多くはありません。</span></p><p><span>ROUTE06ではプロダクト開発以外のドキュメント作成や承認フローでもGitHub Flowを活用しており、開発者以外が基礎を学べる機会を増やすことは重要です。そのため、記事のコンテンツ作成・レビュー・公開までのプロセスをGitHub Flowに準じて行うことのできる仕組みを構築することを考えました。</span></p><p><span>誰にでも解読可能なテキストによって構成される記事コンテンツであれば、ソースコードの作成やレビューに比べて心理的ハードルが大幅に低く、たとえ誤記があってもシステムの維持や機能に影響を与えることもありません。</span></p><p><span>誰でも気軽に挑戦/失敗できるが、開発実務に近いGitHub Flowの学習体験をどう構築するのかはプロダクト開発に関わる人材育成において重要な論点です。ROUTE06で取り組んでいる記事その他コンテンツ制作及び公開のプロセスが、その一つのサンプルプラクティスとなれるように引き続き環境構築にも努めていきたいと考えています。</span></p><p><a href='https://assets.st-note.com/img/1689084452656-zdQZITRk31.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1689084452656-zdQZITRk31.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>route06.co.jpのシステム概要図</span></p><h2 id='記事公開の実際のプロセス'><span> 記事公開の実際のプロセス</span></h2><p><span>コーポレートサイトにおいて実際に運用されているフローは以下の通りです。これまでにこのフローのもとで約60本の記事及びニュースリリースが公開されています。</span></p><h3 id='step-1--記事の企画管理'><span>STEP 1 : 記事の企画管理</span></h3><p><span>記事の企画はGitHub Issuesによって作成され、具体的な進捗はProjectsによって管理されています。個別のIssueでは具体的な記事内容などは記載せずに、企画内容の議論や、付随して発生する撮影業務などのタスク確認を行います。</span></p><p><a href='https://assets.st-note.com/img/1689083892393-SEFIVZ6ZK8.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1689083892393-SEFIVZ6ZK8.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>記事の管理</span></p><h3 id='step-2--記事の入稿'><span>STEP 2 : 記事の入稿</span></h3><p><span>記事を入稿する際には、コーポレートサイト用のRepository内で記事追加用のBranchを作成し、記事本文及び画像等を対象branch内にmdファイル及びimageファイルとして追加します。サイト自体の改修や機能追加なども同じRepositoryを利用しており、BizOpsとDevOpsが一体となって管理されています。</span></p><p><a href='https://assets.st-note.com/img/1689084525192-mjw62wnzWO.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1689084525192-mjw62wnzWO.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>記事の入稿</span></p><h3 id='step-3--記事のレビュー'><span>STEP 3 : 記事のレビュー</span></h3><p><span>記事を実際にレビューする際には、全ステップで作成したBranchのPull requestを行います。そのPull request及びReviewのアサインをトリガーとして、Cloudflare/Storybook/Chromatic等によって動的に生成されたPreview環境が立ち上がり、route06.co.jpドメインアカウントを有するメンバーのみが本番同様の表示確認行うことができます。</span></p><p><a href='https://assets.st-note.com/img/1689083981740-Aop6o4wlRj.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1689083981740-Aop6o4wlRj.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>記事のレビュープロセス</span></p><h3 id='step-4---記事の公開'><span>STEP 4 :  記事の公開</span></h3><p><span>Approve後のPull requestをMergeすることで、記事その他コンテンツが本番環境に自動的にDeployされます。本番サイト上で公開されていることを確認できれば終了となります。</span></p><p><span>上記の通り、記事の制作から公開までの一連のプロセスはブラウザ上で行われており、実質的にGitHubをCMSとして活用している状態です。</span></p><p><span>実務は主にマーケティング担当者(入社までGitHubに触ったことがなかった社員が中心)が行なっており、基本的にエンジニアが手を動かすことはありません。一方、オペレーション過程におけるエラーの発生などはコミットログや通知(GitHub及びSlack)によって状況を確認しやすく、担当者が必要に応じてエンジニアやデザイナーに技術的なサポートを求めやすい環境になっています。</span></p><p><a href='https://assets.st-note.com/img/1689126914455-iydxz3yfCU.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1689126914455-iydxz3yfCU.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>記事の公開</span></p><h2 id='今後の取り組み'><span> 今後の取り組み</span></h2><p><span>リニューアル後のコーポレートサイトは、検索経由の流入数だけ見ても前年同月比(2023年5月)で約420%にも増加しています。コンテンツ制作への注力に加え、画像ファイルの圧縮をはじめとしたサイト表示の高速化等のユーザビリティ改善に取り組んできたこともトラフィックの増加に少なからず貢献していると考えられます。</span></p><p><span>今後もコーポレートサイトをあらゆるステークホルダー向けの情報サイトとしてグロースさせるために様々なコンテンツを拡充していく方針であり、GitHub上での執筆・編集などの業務効率化のための機能追加なども検討しています。</span></p><p><span>例えば現在GitHub Copilotはコーディングのサポート機能が主体ではありますが、記事の校閲などにも活用できる可能性があり、そのような新しい機能の検証も積極的に行っていきたいと考えています。</span></p><p><span>今回GitHubのCMS活用としてコーポレートサイトの事例をご紹介しましたが、ROUTE06の社内向けのポータルサイト(Handook)の運用においてもGitHubは実質的なCMSとして利用されており、他にも現在企画中の採用サイト等でも類似の仕組みの実装を検討しています。</span></p><p><span>開発者以外のメンバーでもGitHubを日々の業務で利用する文化や環境を作り上げるハードルは相応に高いものの、GitHubはBizOpsとDevOpsの架け橋になれる数少ないプラットフォームです。ROUTE06ではより生産的かつ創造的なワークスタイルを目指して、今後も自社ならではのユニークなGitHub活用にチャレンジしていきます。</span></p><p>&nbsp;</p><h1 id='corporate-decision-record-cdr--githubを活用した新しい稟議システム'><span>Corporate Decision Record (CDR) 〜 GitHubを活用した新しい稟議システム</span></h1><p><span>29</span></p><p><img src="https://assets.st-note.com/production/uploads/images/24161941/profile_254dfc564209333bc15edaea09002237.jpg?width=60" referrerpolicy="no-referrer" alt="ROUTE06"></p><p><a href='https://note.route06.co.jp/'><span>ROUTE06</span></a></p><p><span>2024年2月2日 12:03</span></p><p><span>ROUTE06では今年度からGitHubを活用した新しい稟議システムの運用を開始しました。ソフトウェア開発において技術やアーキテクチャ選定で活用されるArchitectural Decision Record (ADR)の思想と手法に習い、会社運営に関わる意思決定のログ(申請/承認/回覧)を記録する仕組みを構築し、Corporate Decision Record (CDR)と命名しております。少額の経費申請から大型投資や資金調達まで、管理職の権限と責任に基づくあらゆる承認がCDRを介して行われるようになりました。</span></p><p><span>この記事ではCDRは具体的にどのようなシステムであり、どのような設計思想のもとで構築されたのかについてご紹介していきます。</span></p><h2 id='これまでの稟議'><span>これまでの稟議</span></h2><p><span>CDRが稼働する以前は、別の稟議システムが活用されていました。従業員数の増加に伴い、請求・支払に関する承認プロセスの整備が必要であったことから、会計SaaSとの連携性の高いツールを採用した経緯があります。一方で、理想とする稟議のあり方については、経営メンバーを中心に頻繁に議論されていたテーマでもありました。</span></p><p><span>スタートアップの成長過程において稟議システムが導入され、権限・責任・承認プロセスが明瞭になる一方で、意思決定のテンポや機動性が損なわれたり、自身及び所属部門に関わる意思決定以外の情報については見通しが悪くなった状態などを経験した方も多いのではないでしょうか。一般的な稟議システムは上場準備の過程におけるコーポレートガバナンスの強化を主目的として設計されています。</span></p><p><span>入力フォームやワークフローなどの機能面での柔軟性、通知や操作などインタフェース面での利便性、文書保管や権限管理などの安定性を重視したツールは少なくないものの、ソフトウェア開発のADRのように当事者以外の多数の関係者が過去のドキュメントを閲覧・活用する状態を必ずしもユースケースとして想定されているわけではありません。</span></p><p><span>そのような背景があるなかで、ROUTE06ではコーポレートガバナンス強化にとどまらず、従業員数や社歴に応じて「組織の形式知が飛躍的に増大するナレッジプラットフォーム」になることを新しい稟議システムのミッションと定めています。社内のInnerSourceチーム及びコーポレートチームのメンバーを中心に、後述の設計思想のもとで新たに設計・構築された稟議システムがCDRです。</span></p><p><a href='https://assets.st-note.com/img/1706856120541-1WP6NT62Sl.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1706856120541-1WP6NT62Sl.png?width=800" referrerpolicy="no-referrer" alt="画像"></a></p><h2 id='cdrの設計思想'><span>CDRの設計思想</span></h2><p><span>CDRは権限管理やデータ保存などの稟議としての基本要件の充足を前提としつつ、以下の点を重視して設計されています。</span></p><h3 id='1ログの透明性'><span>1.ログの透明性</span></h3><p><span>CDRは一般的な稟議と比べて、承認の結果よりも、承認までの議論や稟議書の内容などの情報活用に重きを置いています。そのため、起案のプロセスおいて承認者のコメントやフィードバック・修正履歴などの議論のログをできるだけ残し、また承認されたドキュメントをできるだけ多くの人が閲覧できる状態を重視しています。</span></p><p><span>人事・経営・個人情報に関わる論点など閲覧権限の制限が合理的かつ倫理的であると判断される場合を除き、基本的な投資判断・契約締結・経費支出などは全社員が閲覧可能です。たとえ取締役であっても、どのような経費支出を行なっているかも全てオープンに公開されています。経営資源の活用や権利義務の発生・移転・更新に関する情報ができるだけ広く共有されることで、意思決定の質が健全に進化し続ける組織を目指しています。</span></p><h3 id='2承認フローの機動性'><span>2.承認フローの機動性</span></h3><p><span>一般的な稟議ワークフローでは複数ステップが存在します。CDRでは起案者と承認者の立場と権限を明確にすることで、承認プロセスを1段階で完了できるように設計されています。前提として稟議の起案者は承認権限を持つ役職者の直下の社員が行い、かつ承認プロセスはその事象に対して権限を有する役職者のみが行うべきであると考えています。</span></p><p><span>実際は複数部長や本部長による合議が必要な場合も多いものの、部長→本部長などのエスカレーション承認のステップは仕組みとして用意されていません。また経費支出など軽微なものを除き、決裁区分の大多数の内容は部長以上が起案者となるように設計されています。稟議における起案者と承認者の立場を定めることで、プロセスの階層化を減らすことが可能になり、意思決定の機動性を高めていきたいと考えています。</span></p><p><a href='https://assets.st-note.com/img/1706775811324-RVYDrJk8IY.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1706775811324-RVYDrJk8IY.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>決裁区分一覧（一部）</span></p><h3 id='3技術と蓄積による拡張性'><span>3.技術と蓄積による拡張性</span></h3><p><span>前述の通りCDRのドキュメントは全てGitHub上に蓄積されています。社員数が増えるほど、起案の実績が増えるほど、ナレッジプラットフォームとしての価値は高まる構造であるだけでなく、特定フォーマットで情報が集約されているため、今後様々な集計分析を行うことも可能になります。また現時点は検討段階ではありますが、プライベートLLMなどにCDRの情報を学習させることで、起案者や承認者の業務をサポートする仕組みを構築するなども考えられます。</span></p><p><span>技術成長と組織拡大に応じて社員それぞれが活用できる社内情報も進化していくように、そのような意思決定のログをデータ資産として活用することを前提としたフォーマットや環境を重視することも、CDRの設計思想の一つです。</span></p><p><a href='https://assets.st-note.com/img/1706797259159-FwK1IoyPxA.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1706797259159-FwK1IoyPxA.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>CDRアーキテクチャ</span></p><h2 id='cdrのワークフロー'><span>CDRのワークフロー</span></h2><p><span>CDRの基礎は前述の通り、ソフトウェア開発におけるADRの思想と手法を、組織全体の意思決定及び稟議フローに拡張適用したものです。ADRはGitのようなバージョン管理システムと相性がよく、またROUTE06は全社ワークプレイスとしてGitHubを全社員が日常的に利用していることもあり、CDRの稟議ワークフローもGitHubの特定RepositoryにおけるCommit及びPull Requestプロセスを活用して実装されています。</span></p><iframe class="note-embed" scrolling="no" src="https://note.route06.co.jp/embed/notes/n5b21649308cf" loading="lazy" height="234px" data-ready="true" style="background-repeat: no-repeat; box-sizing: inherit; padding: 0px; margin: 10px 0px; border: 0px; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246/0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; display: block; vertical-align: initial; width: 494px; max-width: none; visibility: visible;"></iframe><p>&nbsp;</p><p><strong><span>STEP 1. 稟議書の作成</span></strong></p><p><span>起案のプロセスは、CDR Repositoryで特定フォルダ内に稟議書(mdファイル)を作成することから始まります。テンプレートをもとに承認内容等を記載したドキュメント(必要に応じて添付ファイルなども)をアップロードします。</span></p><p><a href='https://assets.st-note.com/img/1706759604123-Ue4pviVMgP.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1706759604123-Ue4pviVMgP.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>ガイドラインと稟議書</span></p><p><strong><span>STEP 2. 承認の手続き</span></strong></p><p><span>稟議書の作成後、起案者は対象BranchのPull Requestを行います。決裁権限表を参考にしながらReviewerに承認者をアサインすることで、意思決定のプロセスが開始されます。当該Pull Request内でコメントや編集提案を行うことで、承認内容が議論されていきます。CDR Repositoryの更新はSlackにも通知されます。</span></p><p><a href='https://assets.st-note.com/img/1706759652968-BTE7H7wj47.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1706759652968-BTE7H7wj47.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>Pull Requestと承認</span></p><p><strong><span>STEP 3. 決定の記録</span></strong></p><p><span>承認者全てのApproveを経て稟議書はMergeされ、その時点に解いて起案内容が決議されたものとして関連ドキュメントが記録されます。main内のmdファイルがSSOT(Single Source of Truth)となり、また過去の議論のログはCloseされたPull Requestを閲覧することで把握することできます。</span></p><p><a href='https://assets.st-note.com/img/1706759665363-xh1u7xXUSd.png?width=2000&amp;height=2000&amp;fit=bounds&amp;quality=85'><img src="https://assets.st-note.com/img/1706759665363-xh1u7xXUSd.png?width=800" referrerpolicy="no-referrer" alt="画像"></a><span>SSOTとしてのmdファイルと履歴</span></p><h2 id='ナレッジプラットフォームとして'><span>ナレッジプラットフォームとして</span></h2><p><span>CDRによって組織の意思決定の質と再現性が向上していくだけではなく、プロアクティブにその情報を活用する社員が増えていく状態を目指していきたいと考えています。新入社員や新たに昇進した役職者でも、過去のログやデータを利便性高く参照することで、従来よりもスムーズかつ効率的に仕事を進められるようになるでしょう。</span></p><p><span>CDRは始まったばかりの仕組みであり、改善すべき課題も沢山あります。GitHubの利用に慣れているROUTE06のメンバーであっても、CDRでの起案/活用にハードルを高く感じる人も少なくありません。CDRは情報が蓄積するほど利便性が高まるプラットフォームでもあり、これから着実な運用と蓄積を進めることで、自社独自の強みとなるプロダクトへと育てていきたいと考えています。</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>
